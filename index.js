@@ -4,7 +4,7 @@ module.exports = function(parent, cb) {
     function adopt(parent) {
         c1++;
         for (var bastard in parent) {
-            if (typeof parent[bastard] === 'object' && bastard !== 'parent') {
+            if (parent[bastard] && typeof parent[bastard] === 'object' && bastard !== 'parent') {
                 parent[bastard].parent = parent;
                 adopt(parent[bastard]);
             }
