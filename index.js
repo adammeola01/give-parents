@@ -4,10 +4,15 @@ module.exports = function(parent, cb) {
 	function adopt(parent) {
 		c1++;
 		for (var bastard in parent) {
-			if (parent[bastard].parent === null) {
-				parent[bastard].parent = parent;
-				adopt(parent[bastard]);
+			if(parent[bastard]){
+				if(parent[bastard].parent === null){
+						parent[bastard].parent = parent;
+						adopt(parent[bastard]);
+				}
 			}
+
+
+
 		}
 	}
 	adopt(parent);
